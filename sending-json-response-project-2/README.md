@@ -1,0 +1,1 @@
+in express to send the json object to the client we use response .json method
