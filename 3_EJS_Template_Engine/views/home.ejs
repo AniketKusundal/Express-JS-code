@@ -1,0 +1,78 @@
+<link href="style.css" rel="stylesheet"> <!-- Using This lin tag we link the css file to the home.ejs page for styling   -->
+
+
+<!--
+  including a file into another file  
+
+  we create a Head.ejs file  in Head .ejs file we write a code for nav bar.
+
+  and we want to show this page entire to our website like home page , about , contact page.
+
+  we cant repet write the code agin and again we write the code one and we simply Write code once Nav.ejs or any other name 
+
+  we simply inculde the file.
+  
+-->
+
+
+<%- include("Head.ejs") %> <!--  -->
+
+<h1>Hello From Home.ejs File</h1>
+
+<script src="config.js"></script>
+
+
+
+<!--
+
+    To execute a ejs in backend  there is a three syntax 
+
+
+    [1]   <%= %>  -> for printing / as text
+
+    [2]  <%- %>   -> for printing / as HTML
+
+    [3] <% %>  -> logical
+
+
+
+    #  There are two ways to printing
+
+        [1] With Html
+
+        [2] With Text
+-->
+
+
+
+<!-- Logical -->
+<!-- <%
+    var a = 10;
+    var b = 20;
+    var c = "Hello"
+%>
+
+ <%-  a+b  %>  -> for Printing as a HTML  -->
+
+
+
+
+
+ <!-- Logical -->
+ <% for (let i = 0; i < 100; i++) { %>
+
+    <% if (i % 2 == 0) { %>
+        <div>Hello Even -- <%- i %></div>
+    <% } else { %>  
+        <div>Hello Odd -- <%- i %></div>
+    <% } %>
+
+<% } %>
+
+
+
+
+
+
+
+
