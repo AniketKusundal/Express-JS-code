@@ -1,0 +1,29 @@
+<h1>Customer List</h1>
+
+<table border="1">
+    <tr>
+        <th>Delete</th>
+        <th>Sr No.</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Address</th>
+    </tr>
+
+    <% for(let i = 0; i < list.length; i++) { %>
+    <tr>
+        <td>
+            <a href="/delete_data?id=<%= list[i].coust_id %>" onclick="return confirm('Are you sure?')">
+                <button>Delete</button>
+            </a>
+        </td>
+        <td><%= i + 1 %></td>
+        <td><%= list[i].coust_name %></td>
+        <td><%= list[i].coust_mobile %></td>
+        <td><%= list[i].coust_email %></td>
+        <td><%= list[i].coust_dob %></td>
+        <td><%= list[i].coust_address %></td>
+    </tr>
+    <% } %>
+</table>
