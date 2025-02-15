@@ -1,0 +1,14 @@
+<%- include('head.ejs') %>
+
+<div class="container">
+
+    
+    <form action="/save_teacher" method="post">
+        <input type="text" name="teacher_name" placeholder="Enter Teacher Name"><br><br>
+        <input type="number" name="teacher_mobile" placeholder="Enter Teacher Mobile"><br><br>
+        <input type="email" name="teacher_email" placeholder="Enter Teacher email"><br><br>
+        <input type="date" name="teacher_dob"><br><br>
+        <textarea name="teacher_address" placeholder="Enter Teacher "></textarea><br><br>
+        <button>Save Teacher</button>
+    </form>
+</div>

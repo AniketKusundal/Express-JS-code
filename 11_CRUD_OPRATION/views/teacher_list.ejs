@@ -1,0 +1,39 @@
+<%- include('head.ejs') %>
+
+
+<div class="container">
+    <h1>Teacher Table List</h1>
+    <table class="table table-boarded ">
+        <tr>
+            <th></th>
+            <th>Serial No.</th>
+            <th>Teacher Name</th>
+            <th>Teacher Mobile</th>
+            <th>Teacher Email</th>
+            <th>Teacher DOB</th>
+            <th>Teacher Address</th>
+        </tr>
+
+        <% for(var i = 0; i<teacher_list.length;i++) { %>
+             <tr><!--start -->
+                <td><a href="/delete_record/<%= teacher_list[i].teacher_id %>" onclick="return confirm( 'Are You Sure ?' )"><button class="btn btn-danger"><i class="fa fa-trash"></i></button></a></td>
+                <td><%= i+1 %></td>
+                <td><%= teacher_list[i].teacher_name %></td>
+                <td><%= teacher_list[i].teacher_mobile %></td>
+                <td><%= teacher_list[i].teacher_email %></td>
+                <td><%= teacher_list[i].teacher_dob %></td>
+                <td><%= teacher_list[i].teacher_address %></td>
+            </tr>
+        <% } %>
+
+        <% if (teacher_list.length === 0) { %>
+            <tr>
+                <td colspan="5" style="text-align: center;">
+                    <br>
+                    NO RECORD FOUND
+                    <br><br>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+</div>
