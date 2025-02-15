@@ -1,0 +1,29 @@
+<h1>ADD NEW PRODUCT</h1>
+
+<form action="/save_product" method="post">
+    <input type="text" name="product_name" placeholder="Product Name"><br><br>
+    <input type="text" name="product_price" placeholder="Product Price"><br><br>
+    <input type="text" name="product_description" placeholder="Product Description"><br><br>
+    <input type="text" name="product_company" placeholder="Product Company"><br><br>
+
+    <strong>Ratings</strong>
+    <select name="product_rating">
+        <option></option>
+        <option>1 Star</option>
+        <option>2 Star</option>
+        <option>3 Star</option>
+        <option>4 Star</option>
+        <option>5 Star</option>
+    </select><br><br>
+
+    <input type="radio" name="product_label" value="Treanding"> Treanding <br>
+    <input type="radio" name="product_label" value="Heighlited"> Heighlited <br>
+    <input type="radio" name="product_label" value="Special"> Special <br>
+    <input type="radio" name="product_label" value="Offered"> Offered <br><br>
+    <button>Save Product</button>
+
+    
+</form>
+
+
+ 

@@ -1,0 +1,24 @@
+<h1>Update Product Information</h1>
+
+<form action="/update_info" method="post">
+    <input type="hidden" name="product_id" value="<%= info[0].product_id%>" placeholder="Product Id" ><br><br>
+    <input type="text" name="product_name" value="<%= info[0].product_name%>" placeholder="Product Name" ><br><br>
+    <input type="text" name="product_price" value="<%= info[0].product_price%>" placeholder="Product Price" ><br><br>
+    <input type="text" name="product_description" value="<%= info[0].product_description%>" placeholder="Product Description" ><br><br>
+    <input type="text" name="product_company" value="<%= info[0].product_company%>" placeholder="Product Company" ><br><br>
+    <strong>Rating</strong>
+    <select name="product_rating" value="<%= info[0].product_rating %>">
+        <option></option>
+        <option <%=(info[0].product_rating == '1 Star') ? 'selected' : '' %>>1 Star</option>
+        <option <%=(info[0].product_rating == '2 Star') ? 'selected' : '' %>>2 Star</option>
+        <option <%=(info[0].product_rating == '3 Star') ? 'selected' : '' %>>3 Star</option>
+        <option <%=(info[0].product_rating == '4 Star') ? 'selected' : '' %>>4 Star</option>
+        <option <%=(info[0].product_rating == '5 Star') ? 'selected' : '' %>>5 Star</option>
+    </select>
+    <br><br>
+    <input type="radio" name="product_label" value="Treanding" <%=(info[0].product_label == 'Treanding') ? 'checked' : '' %>> Treanding <br>
+    <input type="radio" name="product_label" value="Heighlited" <%=(info[0].product_label == 'Heighlited') ? 'checked' : '' %>> Heighlited <br>
+    <input type="radio" name="product_label" value="Special" <%=(info[0].product_label == 'Special') ? 'checked' : '' %>> Special <br>
+    <input type="radio" name="product_label" value="Offered" <%=(info[0].product_label == 'Offered') ? 'checked' : '' %>> Offered <br><br>
+    <button>Update</button>
+</form>

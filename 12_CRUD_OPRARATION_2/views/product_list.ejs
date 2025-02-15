@@ -1,0 +1,39 @@
+<h1 style="text-align: center;">Product List Page</h1>
+
+
+<table border="1" width="900" align="center"  style="text-align: center;">
+    <tr>
+        <th>Delete</th>
+        <th>Edit</th>
+        <th>Serial No.</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Description</th>
+        <th>Product Company</th>
+        <th>Product Rating</th>
+        <th>Product Label</th>
+    </tr>
+
+    <% for(var i = 0; i<product_list.length; i++) { %>
+        <tr>
+            <td>
+                <a href="/edit_product_info/<%=product_list[i].product_id %>">
+                    <button>Edit</button>
+                </a>
+            </td>
+
+            <td>
+                <a href="/delete_product/<%=product_list[i].product_id%>">
+                    <button onclick="return confirm('Are You Suru Want to delete data?')">Delete</button>
+                </a>
+            </td>
+            <td><%=i+1%></td>
+            <td><%= product_list[i].product_name %></td>
+            <td><%= product_list[i].product_price %></td>
+            <td><%= product_list[i].product_description %></td>
+            <td><%= product_list[i].product_company %></td>
+            <td><%= product_list[i].product_rating %></td>
+            <td><%= product_list[i].product_label %></td>
+        </tr>
+    <% } %>
+</table>
