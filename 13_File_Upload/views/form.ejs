@@ -1,0 +1,32 @@
+<h1>Uplaod</h1>
+
+<form action="/save_data" method="post" enctype="multipart/form-data">
+    
+    <input type="file" name="user_image"><br><br>
+    <input type="text" name="user_name" placeholder="User Name"><br><br>
+    <input type="text" name="user_mobile" placeholder="User Mobile"><br><br>
+    <button>Save</button>
+
+</form>
+
+
+
+<table border="1" style="text-align: center;">
+    <tr>
+        <th>Sr No.</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Image</th>
+    </tr>
+
+    <% for(var i = 0; i < list.length; i++) { %>
+        <tr>
+            <td><%= i+1 %></td>
+            <td><%= list[i].user_name %></td>
+            <td><%= list[i].user_mobile %></td>
+            <td>
+                <img src="/uploads/<%= list[i].user_image %>" width="150px" height="100px">
+            </td>
+        </tr>
+        <% } %> 
+</table>
