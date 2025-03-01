@@ -1,0 +1,12 @@
+<%- include('admin_Nav.ejs') %>
+
+
+<div class="container" >
+
+    <form action="admin/save_card" method="post" enctype="multipart/form-data">
+        <input type="file" name="card_img"><br><br>
+        <input type="text" name="card_title" placeholder="Card Title"><br><br>
+        <textarea name="card_description" rows="3" cols="60" placeholder="Card Description"></textarea><br><br>
+        <button>Save Card</button>
+    </form>
+</div>
