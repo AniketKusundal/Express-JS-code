@@ -1,0 +1,47 @@
+<h1>Slider page</h1>
+
+
+<form action="/save_slider" method="post" enctype="multipart/form-data">
+    <strong>Slider Image</strong>
+    <input type="file" name="slider_image"><br><br>
+    <strong>Slider Caption</strong>
+    <input type="text" name="slider_caption"><br><br>
+    <strong>Slider Button Link</strong>
+    <input type="text" name="slider_link"><br><br>
+    <strong>Slider Text</strong>
+    <input type="text" name="slider_text"><br><br>
+    <button>Save Slider</button>
+</form>
+
+
+<table border="1" style="width: 900; text-align: center;">
+    <tr>
+        <td>Edit</td>
+        <td>Delete</td>
+        <th>Sr No.</th>
+        <th>Image</th>
+        <th>Slider Caption</th>
+        <th>Slider Link</th>
+        <th>Slider Text</th>
+    </tr>
+
+    <% for(var i = 0; i <list.length; i++) { %>
+        <tr>
+            <td>
+                <a href="/edit_slider/<%= list[i].slider_id %>">
+                    <button>Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="/delete_slider/<%= list[i].slider_id %>">
+                    <button>Delete</button>
+                </a>
+            </td>
+            <td><%= i + 1 %></td>
+            <td><img src="/uploads/<%= list[i].slider_image %>" width="200px" height="200px"></td>
+            <td><%= list[i].slider_caption %></td>
+            <td><%= list[i].slider_link %></td>
+            <td><%= list[i].slider_text %></td>
+        </tr>
+        <% } %>
+</table>

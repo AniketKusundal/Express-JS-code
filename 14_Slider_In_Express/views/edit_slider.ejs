@@ -1,0 +1,26 @@
+<h1>Upadate your Slider</h1>
+
+
+
+
+<form action="/update_slider" method="post" enctype="multipart/form-data">
+
+
+    <input type="hidden" name="slider_id" value="<%= info.slider_id %>">
+
+    <strong>Slider Image</strong>
+    <input type="file" name="slider_image" ><br><br>
+
+    <strong>Slider Caption</strong>
+    <input type="text" name="slider_caption" value="<%= info.slider_caption %>"><br><br>
+
+    <strong>Slider Button Link</strong>
+    <input type="text" name="slider_link" value="<%= info.slider_link %>"><br><br>
+
+    <strong>Slider Text</strong>
+    <input type="text" name="slider_text" value="<%= info.slider_text %>"><br><br>
+
+    <button>Save Slider</button>
+    <img src="public/uploads/<%= info.slider_image %>" width="150">
+
+</form>
