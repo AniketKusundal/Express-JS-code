@@ -1,0 +1,82 @@
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<h1 style="text-align: center;">Invoice</h1>
+
+<form action="/save_bill" method="post">
+    <strong>Date: </strong>
+    <input type="date" name="bill_date" required><br><br>
+
+    <strong>Customer Name:</strong>
+    <input type="text" name="coustomer_name" required><br><br>
+
+    <table border="1" style="text-align: center;">
+        <tbody id="myTable">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+                <th>Product Total</th>
+                <th>Add</th>
+                <th>Remove</th>
+            </tr>
+
+            <tr>
+                <td><input type="text" name="product_name[]" required></td>
+                <td><input type="text" class="price" name="product_price[]" onkeyup="getTotal()" required></td>
+                <td><input type="number" class="quantity" name="product_quantity[]" onkeyup="getTotal()" required></td>
+                <td><input type="number" class="total" name="product_total[]" readonly required></td>
+                <td><button type="button" onclick="addRow()">+</button></td>
+                <td><button type="button" onclick="removeRow(this)">X</button></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align: right;"><strong>Grand Total:</strong></td>
+                <td>&#8377; <span id="GrandTotal">0</span> /-</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br><br>
+    <button type="submit">Save Invoice</button>
+</form>
+
+<script>
+    // Script for calculating total per product and grand total
+    function getTotal() {
+        var price = document.getElementsByClassName('price');
+        var quantity = document.getElementsByClassName('quantity');
+        var total = document.getElementsByClassName('total');
+        var grandTotal = 0;
+
+        for (var i = 0; i < price.length; i++) {
+            var productTotal = (price[i].value * quantity[i].value) || 0; // Ensure it handles NaN cases
+            total[i].value = productTotal;
+            grandTotal += productTotal;
+        }
+
+        $("#GrandTotal").html(grandTotal); // Update Grand Total
+    }
+
+    // Adding Row Dynamically
+    function addRow() {
+        var row = `
+            <tr>
+                <td><input type="text" name="product_name[]" required></td>
+                <td><input type="text" class="price" name="product_price[]" onkeyup="getTotal()" required></td>
+                <td><input type="number" class="quantity" name="product_quantity[]" onkeyup="getTotal()" required></td>
+                <td><input type="number" class="total" name="product_total[]" readonly required></td>
+                <td><button type="button" onclick="addRow()">+</button></td>
+                <td><button type="button" onclick="removeRow(this)">X</button></td>
+            </tr>
+        `;
+        $('#myTable').append(row);
+    }
+
+    // Removing Row and Updating Total
+    function removeRow(elmt) {
+        $(elmt).closest('tr').remove();
+        getTotal(); // Update total after removing a row
+    }
+</script>
