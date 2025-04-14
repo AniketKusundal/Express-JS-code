@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charecter Counter</title>
+</head>
+<body>
+    <h1>Charecter Counter</h1>
+    <textarea name="text" id="text"></textarea>
+
+    <div class="counter">
+        Charecters :  <span id="CharCount"></span>
+        Word :  <span id="WordCount"></span>
+    </div>
+
+
+
+
+    <script>
+        const inputText = document.getElementById('text')
+        const Charecter = document.getElementById('CharCount')
+        const Word = document.getElementById('WordCount')
+
+
+        inputText.addEventListener('input' , () => {
+            const text = inputText.value
+            Charecter.textContent = text.length;
+
+            const Words = text.trim().split(/\s+/)
+            Word.textContent = text.trim() === "" ? 0 : Words.length
+        })
+    </script>
+</body>
+</html>

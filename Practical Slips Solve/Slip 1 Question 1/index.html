@@ -1,0 +1,67 @@
+<!--
+    Q.1 Write a JavaScript program, while typing text in text box display the proper 
+    message just below to the textbox by performing the validation in JavaScript. 
+    (Error message display in red color).
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slip 1 Question 1</title>
+    <style>
+        body{
+
+            background-color: black;
+            color:  white;
+        }
+
+        .msg{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Q.1 Write a JavaScript program, while typing text in text box display the proper 
+        message just below to the textbox by performing the validation in JavaScript. 
+        (Error message display in red color).
+    </p>
+    <br><br><br>
+
+    <textarea name="type" id="type" class="type" rows="10" cols="30" placeholder="Enter Text For Output" onkeyup="ValidInput()"></textarea>
+    <div class="msg" id="msg"></div>
+
+
+
+
+    <script>
+
+        function ValidInput() {
+            
+            
+            let box = document.getElementById('type')
+            let msg = document.getElementById('msg')
+
+
+
+            if (box.length === 0) {
+                msg.innerHTML = "Text Is require"
+            }
+            else if(box.length <= 4)
+            {
+                msg.innerHTML = "Text Most Be at least 4 Charecters"
+            }
+           else
+           {
+                msg.innerText = " text grater than 4 charecters"
+           }        
+        }
+
+
+
+      
+        
+        
+    </script>
+</body>
+</html>
