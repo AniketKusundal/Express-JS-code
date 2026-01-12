@@ -5,7 +5,7 @@ const fileUpload = require('express-fileupload')
 var util = require('util')
 const app = express()
 
-// middelware for get data from bodt or form
+// middelware for get data from body or form
 app.use(bodyParser.urlencoded({extended:true}))
 
 // middelware for the file upload 
@@ -59,5 +59,6 @@ app.post("/save_data" , async function(req , res){
 
    res.redirect("/")   
 })
+
 
 app.listen(3000)
